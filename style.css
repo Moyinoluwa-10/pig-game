@@ -1,0 +1,373 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* Styling Page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding-bottom: 30px;
+}
+
+/* Styling Pop-up Menus */
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.hidden {
+    display: none;
+    transition: all 0.5s;
+}
+
+.instruct-window {
+    position: absolute;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.3);
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 60px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Navigation Section  */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 40px;
+}
+
+.instructions {
+    color: white;
+    cursor: pointer;
+    font-size: 10px
+}
+
+.score-limit {
+    color: white;
+    cursor: pointer;
+    font-size: 10px
+}
+
+.score-window {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    color: black;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.score-window a {
+    color: black;
+    text-decoration: none;
+} 
+
+.score-window.active {
+    display: flex;
+} 
+
+/* Styling Main Section */
+main {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(200px);
+    filter: blur();
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+/* Styling Player Section */
+.player {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 90px;
+    transition: all 0.75s;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.score {
+    font-size: 80px;
+    font-weight: 300;
+    color: #c7365f;
+    margin-bottom: auto;
+}
+
+.current {
+    background-color: #c7365f;
+    opacity: 0.8;
+    border-radius: 9px;
+    color: #fff;
+    width: 65%;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.75s;
+}
+
+.current-label {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: #ddd;
+    font-weight: 500;
+}
+
+.current-score {
+    font-size: 35px;
+}
+
+.player--active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player--active .name {
+    font-weight: 700;
+}
+
+.player--active .score {
+    font-weight: 500;
+} 
+
+.player--active .current {
+    opacity: 1;
+}
+
+/* Styling Button Section */
+.btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #444;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 8px 25px;
+    border-radius: 100px;
+    box-shadow: 0 17.5px 35px rgba(0, 0, 0, 0.1);
+}
+
+.btn--new {
+    top: 40px;
+}
+
+.btn--roll {
+    top: 390px;
+}
+
+.btn--hold {
+    top: 460px;
+}
+
+.btn:active {
+    transform: translate(-50%, 3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.dice {
+    position: absolute;
+    left: 50%;
+    top: 165px;
+    transform: translateX(-50%);
+    height: 100px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.player--winner {
+    background-color: #2f2f2f;
+}
+
+.player--winner .name {
+    font-weight: 700;
+    color: #c7365f;
+} 
+
+
+/* Responsiveness */
+@media screen and (min-width:850px) and (max-width: 1050px) {
+    /* Styling Main Section */
+    main {
+        max-width: 95%;
+    }
+
+}
+
+
+@media screen and (min-width:650px) and (max-width: 850px) {
+    /* Styling Main Section */
+    main {
+        max-width: 95%;
+    }
+
+    /* Styling Player Section */
+    .player {
+        padding: 90px 30px;
+    }
+
+    .current {
+        /* padding: 20px 10px; */
+        width: 50%;
+    }
+
+}
+
+
+@media screen and (max-width: 650px) {
+    /* Styling Page */
+    body {
+        height: fit-content;
+    }
+
+    /* Styling Pop-up Menus */
+    .overlay {
+        transform: translateY(-17%);
+    }
+
+    .instruct-window {
+        padding: 30px;
+        font-size: 16px;
+        height: fit-content;
+        min-width: 270px;
+    }
+
+    .close {
+        top: 15px;
+        right: 15px;
+    }
+
+    /* Styling Navigation Section */
+    .top-nav {
+        gap: 20px;
+    }
+
+    .score-window {
+        padding: 30px;
+        font-size: 16px;
+        height: fit-content;
+        min-width: 200px;
+    }
+
+    /* Styling Main Section */
+    main {
+        width: 85%;
+        overflow: hidden;
+        flex-direction: column;
+        padding-bottom: 30px;
+        height: fit-content;
+    }
+
+    /* Styling Player Section */
+    .player {
+        padding: 60px;
+    }
+
+    .name {
+        font-size: 25px;
+        height: 27px;
+    }
+
+    .score {
+        font-size: 50px;
+        margin-bottom: 45px;
+    }
+
+    .current {
+        width: fit-content;
+        padding: 17px;
+    }
+
+    .btn {
+        font-size: 12px;
+        left: 26%;
+        height: 33px;
+        width: fit-content;
+    }
+
+    .dice {
+        transform: translate(-50%, 175px);
+        left: 80%;
+        height: 70px;
+    }
+
+    .btn--new {
+        top: 20px;
+        width: 122.39px;
+    }
+
+    .btn--roll {
+        top: 335px;
+        width: 115.39px;
+    }
+
+    .btn--hold {
+        top: 400px;
+        width: 86.58px;
+    }
+
+}
