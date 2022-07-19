@@ -29,7 +29,6 @@ body {
     width: 100%;
     z-index: 1;
     cursor: pointer;
-    background-color: aqua;
 }
 
 .hidden {
